@@ -5,3 +5,6 @@
 # vim swap
 *.swp
 
+# bash script
+*.sh
+
