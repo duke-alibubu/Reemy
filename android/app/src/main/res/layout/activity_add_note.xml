@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".activities.AddNoteActivity">
+
 
         <com.applandeo.materialcalendarview.CalendarView
-            android:id="@+id/datePicker"
+            android:id="@+id/date_picker"
             android:layout_width="0dp"
             android:layout_height="370dp"
             app:datePicker="true"
             app:headerColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:selectionColor="@color/colorAccent"
             app:todayLabelColor="@color/colorPrimaryDark" />
 
         <Button
-            android:id="@+id/addNoteButton"
+            android:id="@+id/add_note_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Save"
@@ -31,17 +35,17 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <EditText
-            android:id="@+id/noteEditText"
+            android:id="@+id/note_edit_text"
             android:layout_width="0dp"
             android:layout_height="72dp"
             android:layout_margin="8dp"
             android:background="@null"
             android:gravity="top"
             android:hint="@string/note_hint"
-            app:layout_constraintBottom_toTopOf="@id/addNoteButton"
+            app:layout_constraintBottom_toTopOf="@id/add_note_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/datePicker" />
+            app:layout_constraintTop_toBottomOf="@id/date_picker" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

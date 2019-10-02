@@ -19,8 +19,8 @@ class MyEventDay: EventDay, Parcelable {
     fun getNote(): String? {
         return this.mNote
     }
-    companion object CREATOR : Parcelable.Creator<MyEventDay>{
 
+    companion object CREATOR : Parcelable.Creator<MyEventDay>{
         override fun createFromParcel(parcel: Parcel): MyEventDay{
             return MyEventDay(parcel)
         }
@@ -31,9 +31,9 @@ class MyEventDay: EventDay, Parcelable {
     }
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
-        dest!!.writeSerializable(calendar)
-        dest!!.writeInt(imageResource)
-        dest!!.writeString(mNote)
+        dest!!.writeSerializable(this.calendar)
+        dest!!.writeInt(this.imageResource)
+        dest!!.writeString(this.mNote)
     }
 
     override fun describeContents(): Int {

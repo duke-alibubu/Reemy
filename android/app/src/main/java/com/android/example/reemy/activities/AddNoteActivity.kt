@@ -8,10 +8,11 @@ import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.R
 import com.android.example.reemy.databinding.ActivityAddNoteBinding
 import com.android.example.reemy.utils.MyEventDay
-import kotlinx.android.synthetic.main.activity_add_note.*
+import com.applandeo.materialcalendarview.EventDay
 
 class AddNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNoteBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_note)

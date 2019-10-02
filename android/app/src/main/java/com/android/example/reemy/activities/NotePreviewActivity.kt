@@ -20,7 +20,7 @@ class NotePreviewActivity: AppCompatActivity() {
         //get intent
         val mIntent = intent
 
-        mIntent.let {
+        mIntent?.let {
             val event : Parcelable = mIntent.getParcelableExtra(MainActivity.EVENT)
             if (event is MyEventDay){
                 // if a day with note

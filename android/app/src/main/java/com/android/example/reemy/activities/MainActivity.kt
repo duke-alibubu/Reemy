@@ -14,7 +14,7 @@ import com.applandeo.materialcalendarview.EventDay
 
 class MainActivity : AppCompatActivity() {
 
-    private val mEventDays: MutableList<EventDay?> = mutableListOf<EventDay?>()
+    private val mEventDays: MutableList<EventDay> = mutableListOf()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,16 +26,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.calendarView.setOnDayClickListener{
-            previewNote(it)
+            it?.let{
+                previewNote(it)
+            }
         }
+
     }
 
 
 
     companion object {
-        val RESULT: String = "RESULT"
-        val EVENT: String = "event"
-        private val ADD_NOTE: Int = 44
+        const val RESULT: String = "RESULT"
+        const val EVENT: String = "event"
+        private const val ADD_NOTE: Int = 44
     }
 
     private fun addNote() {
@@ -44,18 +47,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun previewNote(eventDay: EventDay) {
-        val intent = Intent(this, NotePreviewActivity::class.java);
         if(eventDay is MyEventDay){
+            val intent = Intent(this, NotePreviewActivity::class.java)
             intent.putExtra(EVENT, eventDay )
+            startActivity(intent)
         }
-        startActivity(intent)
     }
 
-    protected override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == ADD_NOTE && resultCode == Activity.RESULT_OK){
             val myEventDay: MyEventDay = data!!.getParcelableExtra(RESULT)
             binding.calendarView.setDate(myEventDay.calendar)
             mEventDays.add(myEventDay)
+            binding.calendarView.setEvents(mEventDays)
         }
     }
 }
