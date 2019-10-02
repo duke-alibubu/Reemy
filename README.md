@@ -8,3 +8,8 @@
 
 ## frontend
 
+
+## android
+- Use databases
+- Display event icons
+
