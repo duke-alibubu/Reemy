@@ -20,7 +20,7 @@ class AddNoteActivity : AppCompatActivity() {
         binding.addNoteButton.setOnClickListener{
             val returnIntent = Intent()
 
-            val myEventDay: MyEventDay = MyEventDay(binding.datePicker.selectedDate, R.drawable.ic_message_black_24dp, binding.noteEditText.text.toString())
+            val myEventDay: MyEventDay = MyEventDay(binding.datePicker.selectedDate, R.drawable.ic_message_black_48dp, binding.noteEditText.text.toString())
             returnIntent.putExtra(MainActivity.RESULT, myEventDay)
             setResult(Activity.RESULT_OK, returnIntent)
             finish()

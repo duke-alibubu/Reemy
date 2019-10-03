@@ -26,14 +26,16 @@ class MyEventDay: EventDay, Parcelable {
         }
 
         override fun newArray(size: Int): Array<MyEventDay?> {
-            return arrayOfNulls<MyEventDay>(size)
+            return arrayOfNulls(size)
         }
+
+
     }
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest!!.writeSerializable(this.calendar)
-        dest!!.writeInt(this.imageResource)
-        dest!!.writeString(this.mNote)
+        dest.writeInt(this.imageResource)
+        dest.writeString(this.mNote)
     }
 
     override fun describeContents(): Int {
