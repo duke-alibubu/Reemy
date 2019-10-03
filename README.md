@@ -10,5 +10,6 @@
 
 ## android
 - Use databases
-- Display event icons
+- Improve text edit box in `AddEventActivity`.
+- Try logging in ?
 
