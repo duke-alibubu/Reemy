@@ -25,5 +25,26 @@ class AddNoteActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, returnIntent)
             finish()
         }
+
+        binding.noteEditText.setOnClickListener{
+            it?.let{
+                val intent = Intent(this, EditTextActivity::class.java)
+                intent.putExtra(CURRENT_STR, binding.noteEditText.text.toString())
+                startActivityForResult(intent, EDIT_NOTE)
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == EDIT_NOTE && resultCode == Activity.RESULT_OK){
+            val myText = data!!.getStringExtra(EDIT_TEXT_RESULT)
+            binding.noteEditText.setText(myText)
+        }
+    }
+
+    companion object {
+        const val EDIT_NOTE = 50
+        const val CURRENT_STR = "current_value"
+        const val EDIT_TEXT_RESULT = "edit_result"
     }
 }
