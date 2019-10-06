@@ -10,6 +10,5 @@
 
 ## android
 - Use databases
-- Improve text edit box in `AddEventActivity`.
 - Try logging in ?
 
