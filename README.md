@@ -11,4 +11,5 @@
 ## android
 - Use databases
 - Try logging in ?
-
+- Mimic note list event with temporary database
+- Add RecyclerView with GridLayout
