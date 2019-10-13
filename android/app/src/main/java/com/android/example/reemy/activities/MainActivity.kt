@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.android.example.reemy.activities.NoteList.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
@@ -31,8 +32,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.listSwitch.setOnClickListener{
+            it?.let{
+                navigateToNoteList()
+            }
+        }
+
     }
 
+    private fun navigateToNoteList() {
+        val intent = Intent(this, NoteListActivity::class.java)
+        startActivity(intent)
+    }
 
 
     companion object {

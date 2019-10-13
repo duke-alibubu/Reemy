@@ -15,7 +15,7 @@
             app:layout_constraintWidth_percent="0.5"
             android:layout_weight="1"
             android:text="@string/calendar"
-            android:background="@color/option_chosen"
+            android:background="@drawable/textview_border"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/list_switch"
@@ -29,25 +29,12 @@
             android:layout_weight="1"
             android:text="@string/list"
             android:textAlignment="center"
-            android:background="@drawable/textview_border"
+            android:background="@color/option_chosen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent="0.5" />
-
-        <com.applandeo.materialcalendarview.CalendarView
-            android:id="@+id/calendar_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:headerColor="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/list_switch"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </com.applandeo.materialcalendarview.CalendarView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_event_button"
