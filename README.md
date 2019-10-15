@@ -12,4 +12,4 @@
 - Use databases
 - Try logging in ?
 - Mimic note list event with temporary database
-- Add RecyclerView with GridLayout
+- Implement coroutine for basic actions that might interact with database
