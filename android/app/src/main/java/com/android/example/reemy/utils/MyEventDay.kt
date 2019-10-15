@@ -32,6 +32,14 @@ class MyEventDay: EventDay, Parcelable {
 
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (other is MyEventDay){
+            if ((other.mNote.equals(mNote))&&(other.calendar == calendar))
+                return true
+        }
+        return false
+    }
+
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest!!.writeSerializable(this.calendar)
         dest.writeInt(this.imageResource)

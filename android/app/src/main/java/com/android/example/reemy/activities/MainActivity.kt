@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.activities.NoteList.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
+import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 
@@ -15,12 +16,14 @@ import com.applandeo.materialcalendarview.EventDay
 
 class MainActivity : AppCompatActivity() {
 
-    private val mEventDays: MutableList<EventDay> = mutableListOf()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, com.android.example.reemy.R.layout.activity_main)
+
+        //can use coroutine here
+        binding.calendarView.setEvents(AllEvents.mEventDays)
 
         binding.addEventButton.setOnClickListener{
             addNote()
@@ -69,8 +72,8 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == ADD_NOTE && resultCode == Activity.RESULT_OK){
             val myEventDay: MyEventDay = data!!.getParcelableExtra(RESULT)
             binding.calendarView.setDate(myEventDay.calendar)
-            mEventDays.add(myEventDay)
-            binding.calendarView.setEvents(mEventDays)
+            AllEvents.mEventDays.add(myEventDay)
+            binding.calendarView.setEvents(AllEvents.mEventDays)
         }
     }
 }
