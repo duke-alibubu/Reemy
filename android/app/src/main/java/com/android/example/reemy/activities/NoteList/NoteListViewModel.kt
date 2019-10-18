@@ -8,7 +8,7 @@ import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
 
 class NoteListViewModel(application: Application): AndroidViewModel(application){
-    private var mEventDays = MutableLiveData<MutableList<EventDay>>()
+    var mEventDays = MutableLiveData<MutableList<EventDay>>()
     private var viewModelJob : Job = Job()
     private var uiScope : CoroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     init {
