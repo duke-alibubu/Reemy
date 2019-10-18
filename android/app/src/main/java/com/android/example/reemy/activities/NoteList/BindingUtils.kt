@@ -4,11 +4,18 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
+import android.text.format.DateFormat
+import java.util.*
 
 @BindingAdapter("noteDayFormatted")
 fun TextView.setNoteDayFormatted(item: EventDay?){
     item?.let{
-        text = item.calendar.toString()
+        val date: Date = item.calendar.time
+        val day: String = DateFormat.format("dd", date).toString()
+        val month: String = DateFormat.format("MMM", date).toString()
+        val year: String = DateFormat.format("yyyy",  date).toString()
+        val result = "$day $month $year"
+        text = result
     }
 }
 

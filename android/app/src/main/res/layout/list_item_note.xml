@@ -37,7 +37,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/note_image"
             app:layout_constraintTop_toTopOf="@+id/note_image"
-            android:text="Today"
+            tools:text="Today"
+            app:noteDayFormatted="@{noteObject}"
 
             />
 
@@ -50,8 +51,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/date"
             app:layout_constraintTop_toBottomOf="@+id/date"
-            android:text="A Note"
-
+            tools:text="A Note"
+            app:noteContentFormatted="@{noteObject}"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
