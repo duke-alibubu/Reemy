@@ -1,7 +1,9 @@
 package com.android.example.reemy.activities.NoteList
 
 import android.app.Application
+import android.util.EventLog
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.example.reemy.utils.AllEvents
 import com.applandeo.materialcalendarview.EventDay
@@ -15,6 +17,10 @@ class NoteListViewModel(application: Application): AndroidViewModel(application)
         loadEventDays()
     }
 
+    private val _navigateToNotePreview = MutableLiveData<EventDay>()
+    val navigateToNotePreview: LiveData<EventDay>
+        get() = _navigateToNotePreview
+
     private fun loadEventDays() {
         uiScope.launch{
             mEventDays.value = getEventsFromDatabase()
@@ -26,6 +32,10 @@ class NoteListViewModel(application: Application): AndroidViewModel(application)
             var events = AllEvents.mEventDays
             events
         }
+    }
+
+    fun onNoteClicked(event: EventDay){
+        _navigateToNotePreview.value = event
     }
 
 }
