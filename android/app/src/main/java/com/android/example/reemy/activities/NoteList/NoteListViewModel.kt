@@ -1,4 +1,4 @@
-package com.android.example.reemy.activities.NoteList
+package com.android.example.reemy.activities.notelist
 
 import android.app.Application
 import android.util.EventLog
@@ -36,6 +36,10 @@ class NoteListViewModel(application: Application): AndroidViewModel(application)
 
     fun onNoteClicked(event: EventDay){
         _navigateToNotePreview.value = event
+    }
+
+    fun onNoteClickedFinish(){
+        _navigateToNotePreview.value = null
     }
 
 }

@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.android.example.reemy.activities.NoteList.NoteListActivity
+import com.android.example.reemy.activities.notelist.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
 import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.MyEventDay

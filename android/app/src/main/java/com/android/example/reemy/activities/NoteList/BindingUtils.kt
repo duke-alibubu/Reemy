@@ -1,4 +1,4 @@
-package com.android.example.reemy.activities.NoteList
+package com.android.example.reemy.activities.notelist
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter

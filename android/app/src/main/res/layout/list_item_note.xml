@@ -7,12 +7,16 @@
         <variable
             name="noteObject"
             type="com.applandeo.materialcalendarview.EventDay" />
+        <variable
+            name="clickListener"
+            type="com.android.example.reemy.activities.notelist.NoteEventListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> clickListener.onClick(noteObject)}">
 
         <ImageView
             android:id="@+id/note_image"

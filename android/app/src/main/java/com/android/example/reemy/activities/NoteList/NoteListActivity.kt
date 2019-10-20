@@ -1,4 +1,4 @@
-package com.android.example.reemy.activities.NoteList
+package com.android.example.reemy.activities.notelist
 
 import android.app.Application
 import android.content.Intent
@@ -12,6 +12,7 @@ import com.android.example.reemy.activities.MainActivity
 import com.android.example.reemy.databinding.ActivityNoteListBinding
 import com.android.example.reemy.utils.AllEvents
 import androidx.lifecycle.Observer
+import com.android.example.reemy.activities.NotePreviewActivity
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import java.util.*
@@ -29,7 +30,22 @@ class NoteListActivity : AppCompatActivity() {
             ViewModelProviders.of(
                 this, viewModelFactory).get(NoteListViewModel::class.java)
 
-        val adapter = NoteAdapter()
+        val adapter = NoteAdapter(NoteEventListener {
+            it?.let{
+                noteListViewModel.onNoteClicked(it)
+            }
+        })
+
+        noteListViewModel.navigateToNotePreview.observe(this, Observer {
+            it?.let{
+                if(it is MyEventDay){
+                    val intent = Intent(this, NotePreviewActivity::class.java)
+                    intent.putExtra(MainActivity.EVENT, it )
+                    startActivity(intent)
+                }
+                noteListViewModel.onNoteClickedFinish()
+            }
+        })
         
         binding.noteList.adapter = adapter
         noteListViewModel.mEventDays.observe(this, Observer{

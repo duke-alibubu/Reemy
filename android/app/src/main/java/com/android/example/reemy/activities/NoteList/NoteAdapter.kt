@@ -1,4 +1,4 @@
-package com.android.example.reemy.activities.NoteList
+package com.android.example.reemy.activities.notelist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ class NoteDiffCallBack: DiffUtil.ItemCallback<EventDay>(){
     }
 }
 
-class NoteAdapter: ListAdapter<EventDay, NoteAdapter.ViewHolder>(NoteDiffCallBack()){
+class NoteAdapter(val clickListener: NoteEventListener): ListAdapter<EventDay, NoteAdapter.ViewHolder>(NoteDiffCallBack()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -27,15 +27,17 @@ class NoteAdapter: ListAdapter<EventDay, NoteAdapter.ViewHolder>(NoteDiffCallBac
     //this function is called by RecyclerView to display the data for one list item at the specified position
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(getItem(position)!!)
+        holder.bind(getItem(position)!!, clickListener)
     }
 
 
 
     class ViewHolder private constructor(val binding: ListItemNoteBinding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: EventDay) {
+        fun bind(item: EventDay, clickListener: NoteEventListener) {
             binding.noteObject = item
+
+            binding.clickListener = clickListener
 
             binding.executePendingBindings()
         }
@@ -52,4 +54,8 @@ class NoteAdapter: ListAdapter<EventDay, NoteAdapter.ViewHolder>(NoteDiffCallBac
             }
         }
     }
+}
+
+class NoteEventListener(val clickListener: (event: EventDay) -> Unit) {
+    fun onClick(event: EventDay) = clickListener(event)
 }

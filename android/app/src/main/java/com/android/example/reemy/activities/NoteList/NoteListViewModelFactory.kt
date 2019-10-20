@@ -1,4 +1,4 @@
-package com.android.example.reemy.activities.NoteList
+package com.android.example.reemy.activities.notelist
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
