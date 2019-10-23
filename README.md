@@ -11,5 +11,4 @@
 ## android
 - Use databases
 - Try logging in ?
-- Mimic note list event with temporary database
-- Implement coroutine for basic actions that might interact with database
+- Implement coroutine for basic actions that might interact with database (Load event in main activity, delete event in main activity)
