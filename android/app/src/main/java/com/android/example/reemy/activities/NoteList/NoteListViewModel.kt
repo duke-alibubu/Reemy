@@ -41,5 +41,4 @@ class NoteListViewModel(application: Application): AndroidViewModel(application)
     fun onNoteClickedFinish(){
         _navigateToNotePreview.value = null
     }
-
 }
