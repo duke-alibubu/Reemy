@@ -31,13 +31,24 @@ class MainActivity : AppCompatActivity() {
             ViewModelProviders.of(
                 this, viewModelFactory).get(MainCalendarViewModel::class.java)
 
-        //can use coroutine here
+
         mainCalendarViewModel.mEventDays.observe(this, Observer {
             it?.let{
                 binding.calendarView.setEvents(it)
             }
         })
-        //binding.calendarView.setEvents(AllEvents.mEventDays)
+
+        mainCalendarViewModel.navigateToNotePreview.observe(this, Observer {
+            it?.let{
+                if(it is MyEventDay){
+                    val intent = Intent(this, NotePreviewActivity::class.java)
+                    intent.putExtra(EVENT, it )
+                    startActivity(intent)
+                }
+                mainCalendarViewModel.onNoteClickedFinish()
+            }
+        })
+
 
         binding.addEventButton.setOnClickListener{
             addNote()
@@ -45,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.calendarView.setOnDayClickListener{
             it?.let{
-                previewNote(it)
+                mainCalendarViewModel.onNoteClicked(it)
             }
         }
 
@@ -75,13 +86,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun previewNote(eventDay: EventDay) {
-        if(eventDay is MyEventDay){
-            val intent = Intent(this, NotePreviewActivity::class.java)
-            intent.putExtra(EVENT, eventDay )
-            startActivity(intent)
-        }
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -89,7 +93,6 @@ class MainActivity : AppCompatActivity() {
             val myEventDay: MyEventDay = data!!.getParcelableExtra(RESULT)
             binding.calendarView.setDate(myEventDay.calendar)
             AllEvents.mEventDays.add(myEventDay)
-            //binding.calendarView.setEvents(AllEvents.mEventDays)
         }
     }
 }
