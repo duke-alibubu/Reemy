@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.android.example.reemy.activities.AddNoteActivity
 import com.android.example.reemy.activities.NotePreviewActivity
 import com.android.example.reemy.activities.notelist.NoteListActivity
@@ -24,8 +26,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, com.android.example.reemy.R.layout.activity_main)
 
+        val viewModelFactory : MainCalendarViewModelFactory = MainCalendarViewModelFactory(application)
+        val mainCalendarViewModel : MainCalendarViewModel =
+            ViewModelProviders.of(
+                this, viewModelFactory).get(MainCalendarViewModel::class.java)
+
         //can use coroutine here
-        binding.calendarView.setEvents(AllEvents.mEventDays)
+        mainCalendarViewModel.mEventDays.observe(this, Observer {
+            it?.let{
+                binding.calendarView.setEvents(it)
+            }
+        })
+        //binding.calendarView.setEvents(AllEvents.mEventDays)
 
         binding.addEventButton.setOnClickListener{
             addNote()
@@ -42,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                 navigateToNoteList()
             }
         }
-
     }
 
     private fun navigateToNoteList() {
@@ -78,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             val myEventDay: MyEventDay = data!!.getParcelableExtra(RESULT)
             binding.calendarView.setDate(myEventDay.calendar)
             AllEvents.mEventDays.add(myEventDay)
-            binding.calendarView.setEvents(AllEvents.mEventDays)
+            //binding.calendarView.setEvents(AllEvents.mEventDays)
         }
     }
 }
