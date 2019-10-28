@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.R
+import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityAddNoteBinding
 import com.android.example.reemy.utils.MyEventDay
-import com.applandeo.materialcalendarview.EventDay
 
 class AddNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNoteBinding
@@ -36,6 +36,7 @@ class AddNoteActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == EDIT_NOTE && resultCode == Activity.RESULT_OK){
             val myText = data!!.getStringExtra(EDIT_TEXT_RESULT)
             binding.noteEditText.setText(myText)

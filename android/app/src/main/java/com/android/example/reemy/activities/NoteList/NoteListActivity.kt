@@ -8,14 +8,12 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.android.example.reemy.R
-import com.android.example.reemy.activities.MainActivity
+import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityNoteListBinding
 import com.android.example.reemy.utils.AllEvents
 import androidx.lifecycle.Observer
 import com.android.example.reemy.activities.NotePreviewActivity
 import com.android.example.reemy.utils.MyEventDay
-import com.applandeo.materialcalendarview.EventDay
-import java.util.*
 
 class NoteListActivity : AppCompatActivity() {
 

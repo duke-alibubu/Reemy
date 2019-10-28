@@ -1,10 +1,12 @@
-package com.android.example.reemy.activities
+package com.android.example.reemy.activities.maincalendar
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.android.example.reemy.activities.AddNoteActivity
+import com.android.example.reemy.activities.NotePreviewActivity
 import com.android.example.reemy.activities.notelist.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
 import com.android.example.reemy.utils.AllEvents
@@ -57,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNote() {
         val intent = Intent(this, AddNoteActivity::class.java)
-        startActivityForResult(intent, ADD_NOTE)
+        startActivityForResult(intent,
+            ADD_NOTE
+        )
     }
 
     private fun previewNote(eventDay: EventDay) {

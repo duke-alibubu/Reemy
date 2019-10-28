@@ -3,9 +3,9 @@ package com.android.example.reemy.activities
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityNotePreviewBinding
 import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.MyEventDay
