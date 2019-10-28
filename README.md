@@ -11,4 +11,6 @@
 ## android
 - Use databases
 - Try logging in ?
-- Implement coroutine for basic actions that might interact with database (Load event in main activity, delete event in main activity)
+- Implement coroutine for basic actions that might interact with database (delete event)
+- A bug where multiple events in a day. Need to update Edit Note Activity <Might not need to do this>
+- Need to add editor in NotePreview
