@@ -15,6 +15,7 @@ import com.android.example.reemy.utils.IntentCode
 import com.android.example.reemy.utils.IntentCode.Companion.CURRENT_STR
 import com.android.example.reemy.utils.IntentCode.Companion.EDIT_NOTE
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT
+import com.android.example.reemy.utils.IntentCode.Companion.getFormattedDate
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
@@ -112,10 +113,4 @@ class NotePreviewActivity: AppCompatActivity() {
         startActivity(Intent(this,MainActivity::class.java))
     }
 
-    companion object {
-        fun getFormattedDate(date: Date): String {
-            val simpleDateFormat: SimpleDateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
-            return simpleDateFormat.format(date)
-        }
-    }
 }
