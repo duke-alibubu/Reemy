@@ -88,5 +88,6 @@ class MainActivity : AppCompatActivity() {
             AllEvents.mEventDays.add(myEventDay)
         }
     }
+
 }
 

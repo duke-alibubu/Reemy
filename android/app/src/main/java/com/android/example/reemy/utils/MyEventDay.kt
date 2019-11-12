@@ -20,6 +20,10 @@ class MyEventDay: EventDay, Parcelable {
         return this.mNote
     }
 
+    fun setNote(note: String){
+        this.mNote = note
+    }
+
     companion object CREATOR : Parcelable.Creator<MyEventDay>{
         override fun createFromParcel(parcel: Parcel): MyEventDay{
             return MyEventDay(parcel)
