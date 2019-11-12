@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityNotePreviewBinding
 import com.android.example.reemy.utils.AllEvents
+import com.android.example.reemy.utils.IntentCode.Companion.EVENT
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
@@ -33,7 +34,7 @@ class NotePreviewActivity: AppCompatActivity() {
 
 
         mIntent?.let {
-            val event : Parcelable = mIntent.getParcelableExtra(MainActivity.EVENT)
+            val event : Parcelable = mIntent.getParcelableExtra(EVENT)
             if (event is MyEventDay){
                 // if a day with note
                 val myEventDay: MyEventDay = event as MyEventDay

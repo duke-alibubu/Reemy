@@ -13,6 +13,7 @@ import com.android.example.reemy.databinding.ActivityNoteListBinding
 import com.android.example.reemy.utils.AllEvents
 import androidx.lifecycle.Observer
 import com.android.example.reemy.activities.notepreview.NotePreviewActivity
+import com.android.example.reemy.utils.IntentCode.Companion.EVENT
 import com.android.example.reemy.utils.MyEventDay
 
 class NoteListActivity : AppCompatActivity() {
@@ -38,7 +39,7 @@ class NoteListActivity : AppCompatActivity() {
             it?.let{
                 if(it is MyEventDay){
                     val intent = Intent(this, NotePreviewActivity::class.java)
-                    intent.putExtra(MainActivity.EVENT, it )
+                    intent.putExtra(EVENT, it )
                     startActivity(intent)
                 }
                 noteListViewModel.onNoteClickedFinish()

@@ -12,6 +12,9 @@ import com.android.example.reemy.activities.notepreview.NotePreviewActivity
 import com.android.example.reemy.activities.notelist.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
 import com.android.example.reemy.utils.AllEvents
+import com.android.example.reemy.utils.IntentCode.Companion.ADD_NOTE
+import com.android.example.reemy.utils.IntentCode.Companion.EVENT
+import com.android.example.reemy.utils.IntentCode.Companion.RESULT
 import com.android.example.reemy.utils.MyEventDay
 
 
@@ -67,13 +70,6 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToNoteList() {
         val intent = Intent(this, NoteListActivity::class.java)
         startActivity(intent)
-    }
-
-
-    companion object {
-        const val RESULT: String = "RESULT"
-        const val EVENT: String = "event"
-        private const val ADD_NOTE: Int = 44
     }
 
     private fun addNote() {

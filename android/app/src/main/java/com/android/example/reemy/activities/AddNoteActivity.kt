@@ -8,6 +8,10 @@ import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.R
 import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityAddNoteBinding
+import com.android.example.reemy.utils.IntentCode.Companion.CURRENT_STR
+import com.android.example.reemy.utils.IntentCode.Companion.EDIT_NOTE
+import com.android.example.reemy.utils.IntentCode.Companion.EDIT_TEXT_RESULT
+import com.android.example.reemy.utils.IntentCode.Companion.RESULT
 import com.android.example.reemy.utils.MyEventDay
 
 class AddNoteActivity : AppCompatActivity() {
@@ -21,7 +25,7 @@ class AddNoteActivity : AppCompatActivity() {
             val returnIntent = Intent()
 
             val myEventDay: MyEventDay = MyEventDay(binding.datePicker.selectedDate, R.drawable.ic_message_black_48dp, binding.noteEditText.text.toString())
-            returnIntent.putExtra(MainActivity.RESULT, myEventDay)
+            returnIntent.putExtra(RESULT, myEventDay)
             setResult(Activity.RESULT_OK, returnIntent)
             finish()
         }
@@ -41,11 +45,5 @@ class AddNoteActivity : AppCompatActivity() {
             val myText = data!!.getStringExtra(EDIT_TEXT_RESULT)
             binding.noteEditText.setText(myText)
         }
-    }
-
-    companion object {
-        const val EDIT_NOTE = 50
-        const val CURRENT_STR = "current_value"
-        const val EDIT_TEXT_RESULT = "edit_result"
     }
 }
