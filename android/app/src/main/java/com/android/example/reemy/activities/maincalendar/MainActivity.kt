@@ -8,14 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.android.example.reemy.activities.AddNoteActivity
-import com.android.example.reemy.activities.NotePreviewActivity
+import com.android.example.reemy.activities.notepreview.NotePreviewActivity
 import com.android.example.reemy.activities.notelist.NoteListActivity
 import com.android.example.reemy.databinding.ActivityMainBinding
 import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.MyEventDay
-import com.applandeo.materialcalendarview.EventDay
-
-
 
 
 class MainActivity : AppCompatActivity() {

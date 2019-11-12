@@ -17,27 +17,4 @@ class NotePreviewViewModel(val event: EventDay, application: Application): Andro
         mEvent = event
     }
 
-    private val _delete = MutableLiveData<Boolean>()
-    val delete: LiveData<Boolean>
-        get() = _delete
-
-    fun deleteEvent() {
-        uiScope.launch{
-            deleteEventFromDatabase()
-        }
-    }
-
-    private suspend fun deleteEventFromDatabase(){
-        withContext(Dispatchers.IO){
-            AllEvents.mEventDays.remove(mEvent)
-        }
-    }
-
-    fun onStartDeleteEvent(){
-        _delete.value = true
-    }
-
-    fun onDeleteEventComplete(){
-        _delete.value = null
-    }
 }
