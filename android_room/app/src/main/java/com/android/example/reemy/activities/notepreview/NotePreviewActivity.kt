@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.activities.EditTextActivity
@@ -19,8 +18,6 @@ import com.android.example.reemy.utils.IntentCode.Companion.getFormattedDate
 import com.android.example.reemy.utils.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class NotePreviewActivity: AppCompatActivity() {
     private lateinit var binding: ActivityNotePreviewBinding

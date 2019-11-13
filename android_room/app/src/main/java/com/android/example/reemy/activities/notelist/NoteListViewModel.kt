@@ -1,7 +1,6 @@
 package com.android.example.reemy.activities.notelist
 
 import android.app.Application
-import android.util.EventLog
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
