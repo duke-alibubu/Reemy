@@ -15,7 +15,7 @@ import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.IntentCode.Companion.ADD_NOTE
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT
 import com.android.example.reemy.utils.IntentCode.Companion.RESULT
-import com.android.example.reemy.utils.MyEventDay
+import com.android.example.reemy.database.MyEventDay
 
 
 class MainActivity : AppCompatActivity() {

@@ -2,7 +2,7 @@ package com.android.example.reemy.activities.notelist
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.android.example.reemy.utils.MyEventDay
+import com.android.example.reemy.database.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import android.text.format.DateFormat
 import java.util.*

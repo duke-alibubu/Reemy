@@ -15,7 +15,7 @@ import com.android.example.reemy.utils.IntentCode.Companion.CURRENT_STR
 import com.android.example.reemy.utils.IntentCode.Companion.EDIT_NOTE
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT
 import com.android.example.reemy.utils.IntentCode.Companion.getFormattedDate
-import com.android.example.reemy.utils.MyEventDay
+import com.android.example.reemy.database.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
 

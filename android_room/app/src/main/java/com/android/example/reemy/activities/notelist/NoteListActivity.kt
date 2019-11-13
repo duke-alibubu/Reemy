@@ -14,7 +14,7 @@ import com.android.example.reemy.utils.AllEvents
 import androidx.lifecycle.Observer
 import com.android.example.reemy.activities.notepreview.NotePreviewActivity
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT
-import com.android.example.reemy.utils.MyEventDay
+import com.android.example.reemy.database.MyEventDay
 
 class NoteListActivity : AppCompatActivity() {
 

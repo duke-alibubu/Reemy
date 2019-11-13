@@ -6,13 +6,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.android.example.reemy.R
-import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityAddNoteBinding
 import com.android.example.reemy.utils.IntentCode.Companion.CURRENT_STR
 import com.android.example.reemy.utils.IntentCode.Companion.EDIT_NOTE
 import com.android.example.reemy.utils.IntentCode.Companion.EDIT_TEXT_RESULT
 import com.android.example.reemy.utils.IntentCode.Companion.RESULT
-import com.android.example.reemy.utils.MyEventDay
+import com.android.example.reemy.database.MyEventDay
 
 class AddNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNoteBinding
@@ -24,7 +23,12 @@ class AddNoteActivity : AppCompatActivity() {
         binding.addNoteButton.setOnClickListener{
             val returnIntent = Intent()
 
-            val myEventDay: MyEventDay = MyEventDay(binding.datePicker.selectedDate, R.drawable.ic_message_black_48dp, binding.noteEditText.text.toString())
+            val myEventDay: MyEventDay =
+                MyEventDay(
+                    binding.datePicker.selectedDate,
+                    R.drawable.ic_message_black_48dp,
+                    binding.noteEditText.text.toString()
+                )
             returnIntent.putExtra(RESULT, myEventDay)
             setResult(Activity.RESULT_OK, returnIntent)
             finish()
