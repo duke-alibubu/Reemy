@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.android.example.reemy.R
 import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityNoteListBinding
-import com.android.example.reemy.utils.AllEvents
 import androidx.lifecycle.Observer
 import com.android.example.reemy.activities.notepreview.NotePreviewActivity
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT

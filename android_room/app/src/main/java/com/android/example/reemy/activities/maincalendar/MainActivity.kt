@@ -7,11 +7,12 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.android.example.reemy.activities.AddNoteActivity
+import com.android.example.reemy.addnote.AddNoteActivity
 import com.android.example.reemy.activities.notepreview.NotePreviewActivity
 import com.android.example.reemy.activities.notelist.NoteListActivity
+import com.android.example.reemy.database.EventDatabase
+import com.android.example.reemy.database.EventDatabaseDao
 import com.android.example.reemy.databinding.ActivityMainBinding
-import com.android.example.reemy.utils.AllEvents
 import com.android.example.reemy.utils.IntentCode.Companion.ADD_NOTE
 import com.android.example.reemy.utils.IntentCode.Companion.EVENT
 import com.android.example.reemy.utils.IntentCode.Companion.RESULT
@@ -21,13 +22,15 @@ import com.android.example.reemy.database.MyEventDay
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mainCalendarViewModel: MainCalendarViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, com.android.example.reemy.R.layout.activity_main)
 
-        val viewModelFactory : MainCalendarViewModelFactory = MainCalendarViewModelFactory(application)
-        val mainCalendarViewModel : MainCalendarViewModel =
+        val dataSource : EventDatabaseDao = EventDatabase.getInstance(application).eventDatabaseDao
+        val viewModelFactory : MainCalendarViewModelFactory = MainCalendarViewModelFactory(application, dataSource)
+        mainCalendarViewModel =
             ViewModelProviders.of(
                 this, viewModelFactory).get(MainCalendarViewModel::class.java)
 
@@ -40,11 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         mainCalendarViewModel.navigateToNotePreview.observe(this, Observer {
             it?.let{
-                if(it is MyEventDay){
-                    val intent = Intent(this, NotePreviewActivity::class.java)
-                    intent.putExtra(EVENT, it )
-                    startActivity(intent)
-                }
+                val intent = Intent(this, NotePreviewActivity::class.java)
+                intent.putExtra(EVENT, it )
+                startActivity(intent)
                 mainCalendarViewModel.onNoteClickedFinish()
             }
         })
@@ -56,7 +57,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.calendarView.setOnDayClickListener{
             it?.let{
-                mainCalendarViewModel.onNoteClicked(it)
+                if (it is MyEventDay)
+                    mainCalendarViewModel.onNoteClicked(it.eventId)
             }
         }
 
@@ -74,9 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNote() {
         val intent = Intent(this, AddNoteActivity::class.java)
-        startActivityForResult(intent,
-            ADD_NOTE
-        )
+        startActivityForResult(intent,ADD_NOTE)
     }
 
 
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == ADD_NOTE && resultCode == Activity.RESULT_OK){
             val myEventDay: MyEventDay = data!!.getParcelableExtra(RESULT)
             binding.calendarView.setDate(myEventDay.calendar)
-            AllEvents.mEventDays.add(myEventDay)
+            mainCalendarViewModel.addNewEvent(myEventDay)
         }
     }
 

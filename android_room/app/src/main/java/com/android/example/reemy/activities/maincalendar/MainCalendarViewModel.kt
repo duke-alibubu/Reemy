@@ -4,19 +4,21 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.android.example.reemy.utils.AllEvents
+import com.android.example.reemy.database.EventDatabaseDao
+import com.android.example.reemy.database.MyEventDay
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
 
 
-class MainCalendarViewModel(application: Application): AndroidViewModel(application){
+class MainCalendarViewModel(application: Application, dataSource: EventDatabaseDao): AndroidViewModel(application){
 
-    var mEventDays = MutableLiveData<MutableList<EventDay>>()
+    val database = dataSource
+    var mEventDays = MutableLiveData<List<EventDay>>()
     private var viewModelJob : Job = Job()
     private var uiScope : CoroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _navigateToNotePreview = MutableLiveData<EventDay>()
-    val navigateToNotePreview: LiveData<EventDay>
+    private val _navigateToNotePreview = MutableLiveData<Long>()
+    val navigateToNotePreview: LiveData<Long>
         get() = _navigateToNotePreview
 
     init {
@@ -29,18 +31,31 @@ class MainCalendarViewModel(application: Application): AndroidViewModel(applicat
         }
     }
 
-    private suspend fun getEventsFromDatabase(): MutableList<EventDay>? {
+    private suspend fun getEventsFromDatabase(): List<EventDay>? {
         return withContext(Dispatchers.IO){
-            val events = AllEvents.mEventDays
+            val events = database.getAllEvents().value
             events
         }
     }
 
-    fun onNoteClicked(event: EventDay){
-        _navigateToNotePreview.value = event
+    fun onNoteClicked(eventID: Long){
+        _navigateToNotePreview.value = eventID
     }
 
     fun onNoteClickedFinish(){
         _navigateToNotePreview.value = null
+    }
+
+    fun addNewEvent(event: MyEventDay){
+        uiScope.launch {
+            insertEvent(event)
+            mEventDays.value = getEventsFromDatabase()
+        }
+    }
+
+    private suspend fun insertEvent(event: MyEventDay){
+        withContext(Dispatchers.IO){
+            database.addEvent(event)
+        }
     }
 }

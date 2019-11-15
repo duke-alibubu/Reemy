@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.android.example.reemy.utils.AllEvents
 import com.applandeo.materialcalendarview.EventDay
 import kotlinx.coroutines.*
 
