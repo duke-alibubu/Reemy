@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.applandeo.materialcalendarview.EventDay
 import java.util.*
@@ -16,11 +17,12 @@ class MyEventDay: EventDay, Parcelable{
 
     @ColumnInfo(name = "note")
     var mNote: String
-
+    
     constructor (day: Calendar, imageResource: Int, note: String): super(day, imageResource){
         this.mNote = note
     }
 
+    @Ignore
     private constructor (parcel: Parcel): super(parcel.readSerializable() as Calendar, parcel.readInt()){
         this.mNote = parcel.readString()
     }
@@ -44,6 +46,4 @@ class MyEventDay: EventDay, Parcelable{
     override fun describeContents(): Int {
         return 0
     }
-
-
 }

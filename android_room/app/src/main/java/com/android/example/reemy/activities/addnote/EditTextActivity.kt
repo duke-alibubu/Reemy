@@ -1,4 +1,4 @@
-package com.android.example.reemy.addnote
+package com.android.example.reemy.activities.addnote
 
 import android.app.Activity
 import android.content.Intent

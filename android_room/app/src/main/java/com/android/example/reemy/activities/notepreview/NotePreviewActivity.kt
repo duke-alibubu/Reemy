@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.android.example.reemy.addnote.EditTextActivity
+import com.android.example.reemy.activities.addnote.EditTextActivity
 import com.android.example.reemy.activities.maincalendar.MainActivity
 import com.android.example.reemy.databinding.ActivityNotePreviewBinding
 import com.android.example.reemy.utils.IntentCode
@@ -52,7 +52,7 @@ class NotePreviewActivity: AppCompatActivity() {
                     getFormattedDate(
                         myEventDay.calendar.time
                     )
-                binding.note.text = myEventDay.getNote()
+                //binding.note.text = myEventDay.getNote()
                 mEvent = event
                 return
             }
@@ -82,7 +82,7 @@ class NotePreviewActivity: AppCompatActivity() {
         if (requestCode == EDIT_NOTE && resultCode == Activity.RESULT_OK){
             val myText = data!!.getStringExtra(IntentCode.EDIT_TEXT_RESULT)
             if (mEvent is MyEventDay){
-                (mEvent as MyEventDay).setNote(myText)
+                //(mEvent as MyEventDay).setNote(myText)
                 binding.note.setText(myText)
             }
         }
@@ -100,7 +100,7 @@ class NotePreviewActivity: AppCompatActivity() {
 
     private suspend fun deleteEventFromDatabase(){
         withContext(Dispatchers.IO){
-            AllEvents.mEventDays.remove(mEvent)
+            //AllEvents.mEventDays.remove(mEvent)
         }
     }
 
