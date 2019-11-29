@@ -17,7 +17,7 @@ class MyEventDay: EventDay, Parcelable{
 
     @ColumnInfo(name = "note")
     var mNote: String
-    
+
     constructor (day: Calendar, imageResource: Int, note: String): super(day, imageResource){
         this.mNote = note
     }
