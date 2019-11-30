@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e783565-8509-415b-9f18-e5af4e8cc476" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/src/main/java/com/alibubu/reemy/solo/reemysolowebservices/ReemySoloWebservicesApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oneman_spring/reemy-solo-webservices/src/test/java/com/alibubu/reemy/solo/reemysolowebservices/ReemySoloWebservicesApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1UKZBsu7OYTsvvT7CvmVHWYEjNM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reemy-solo-webservices" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e783565-8509-415b-9f18-e5af4e8cc476" name="Default Changelist" comment="" />
+      <created>1575107114321</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575107114321</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
